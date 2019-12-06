@@ -1,0 +1,98 @@
+<!doctype html>
+<title>Order Page</title>
+{% if account_id %}
+<h1>User Id: {{ account_id }}</h1>
+{% endif %}
+{% if transaction_id %}
+<h2>Your transaction id: {{ transaction_id }}</h2>
+{% endif %}
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<style type="text/css">
+    #image_loader {
+        border: 1px solid #B0B0B0;
+        height: 200px;
+        width: 160px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+    }
+
+    div img {
+        max-width: 100%
+    }
+</style>
+
+<form action="" method="post" name="items">
+    <table id="order" class="table is-striped is-fullwidth">
+        <tr>
+            <th></th>
+            <th>Description</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                <img id="image_loader" src="{{ url_for('static', filename='book1.jpg') }}"/>
+            </td>
+            <td valign="top">
+                <div>
+                    <b>
+                        ASP.NET Core Application Development: Building an application in four sprints (Developer
+                        Reference)
+                    </b>
+                </div>
+                <br>
+                <div>
+                    This book guides you through the entire process of building, deploying, and managing cross-platform
+                    web apps with ASP.NET Core. You'll master Microsoft's revolutionary open source ASP.NET Core
+                    technology, and learn how to integrate the immense power of MVC, Docker, Azure Web Apps, Visual
+                    Studio, C#, JavaScript, and Entity Framework. Working alongside the fictitious development team at
+                    Alpine Ski House, you'll witness a four-sprint journey starting with a blank canvas. You'll see the
+                    team architect and design their software, adjust to user feedback, and move through builds, testing,
+                    deployment, maintenance, and refactoring.
+                </div>
+            </td>
+            <td>
+                $300
+            </td>
+            <td>
+                <label class="checkbox">
+                    <input type="checkbox" name="book1" value="ASP.NET Core Application Development;300"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img id="image_loader" src="{{ url_for('static', filename='book2.jpg') }}"/>
+            </td>
+            <td valign="top">
+                <div><b>Programming ASP.NET Core (Developer Reference)</b></div>
+                <br>
+                <div style="align: top">
+                    Dino Esposito's Programming ASP.NET Core is the definitive guide to practical software development
+                    with Microsoft's exciting new ASP.NET Core technologies. Unlike competitive books that focus
+                    primarily on ASP.NET Core's cross-platform capabilities or only what's changed from earlier
+                    versions, Esposito offers a complete learning path for every developer who wants to build production
+                    solutions. Esposito's expert coverage includes:
+                </div>
+            </td>
+            <td>
+                $280
+            </td>
+            <td>
+                <label class="checkbox">
+                    <input type="checkbox" name="book2" value="Programming ASP.NET Core (Developer Reference);280"/>
+                </label>
+            </td>
+        </tr>
+    </table>
+    <p>
+    <div>Memo: <input type="text" name="memo" style="width: 200px; height: 20px"></div>
+    <p>
+    <div class="field is-grouped">
+        <div>
+            <button style="width: 80px;height: 25px;">Buy</button>
+        </div>
+    </div>
+</form>

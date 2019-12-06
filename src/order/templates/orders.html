@@ -1,0 +1,29 @@
+<!doctype html>
+<title>Orders</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<table id="order">
+    <tr>
+        <th>Order Id</th>
+        <th>Account ID</th>
+        <th>Items</th>
+        <th>Memo</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <td>{{ order.order_id }}</td>
+        <td>{{ order.account_id }}</td>
+        <td>
+            <table id="order">
+            {% for item in order.item %}
+            <tr>
+                <td style="width: 80%; border-width: 0">{{item.name}}</td>
+                <td style="width: 20%; border-width: 0">{{item.price}}</td>
+            </tr>
+            {% endfor %}
+            </table>
+        </td>
+        <td>{{ order.memo }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
